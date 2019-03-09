@@ -1,8 +1,15 @@
-FROM python:2-alpine
+FROM alpine:latest
 
 LABEL maintainer="Ghostry <ghostry.green@gmail.com>"
 
-RUN pip install pipenv
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    mysql-dev \
+    build-base \
+  && pip install pipenv \
+  && rm -rf /var/cache/apk/*
 
 ADD start.sh /start.sh
 
