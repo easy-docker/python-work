@@ -1,15 +1,11 @@
-FROM alpine:latest
+FROM ubuntu:bionic
 
 LABEL maintainer="Ghostry <ghostry.green@gmail.com>"
 
-RUN apk add --update \
-    python \
-    python-dev \
-    py-pip \
-    mysql-dev \
-    build-base \
-  && pip install pipenv \
-  && rm -rf /var/cache/apk/*
+RUN apt-get update \
+  && apt-get install -y python-pip python-dev libmysqld-dev libmysqlclient-dev git \
+  && rm -rf /var/lib/apt/lists/* \
+  && pip install pipenv
 
 ADD start.sh /start.sh
 
