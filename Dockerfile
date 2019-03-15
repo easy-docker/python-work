@@ -3,9 +3,9 @@ FROM ubuntu:bionic
 LABEL maintainer="Ghostry <ghostry.green@gmail.com>"
 
 RUN apt-get update \
-  && apt-get install -y python-pip python-dev libmysqld-dev libmysqlclient-dev git memcached \
+  && apt-get install -y python3-pip git memcached mysql-client \
   && rm -rf /var/lib/apt/lists/* \
-  && pip install pipenv
+  && pip3 install pipenv
 
 ADD start.sh /start.sh
 
