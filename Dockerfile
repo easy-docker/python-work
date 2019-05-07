@@ -6,7 +6,9 @@ RUN apt-get update \
   && apt-get install -y software-properties-common \
   && add-apt-repository ppa:deadsnakes/ppa \
   && apt-get install -y git memcached mysql-client libpq-dev python-dev \
-  && apt-get install -y python3-pip python2.7 python3.4 python3.7 \
+  && apt-get install -y python3-pip \
+  && apt dist-upgrade -y \
+  && apt clean \
   && rm -rf /var/lib/apt/lists/* \
   && pip3 install pipenv
 
