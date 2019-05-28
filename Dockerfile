@@ -16,7 +16,7 @@ ADD start.sh /start.sh
 
 RUN chmod +x /start.sh \
     && mkdir /data \
-    && echo 'export LC_ALL=C.UTF-8;export LANG=C.UTF-8;' >> /root/.bashrc
+    && echo 'export LC_ALL=C.UTF-8;export LANG=C.UTF-8;umask 000;' >> /root/.bashrc
 
 WORKDIR /data
 
