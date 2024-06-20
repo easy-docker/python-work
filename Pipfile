@@ -17,7 +17,7 @@ django-crontab = "==0.7.*"
 psycopg2 = "==2.8.*"
 psutil = "==5.6.*"
 urllib3 = "<2"
-requests >= "2.26.*" 
+requests = ">=2.26.*" 
 
 [requires]
 python_version = "3.8"
