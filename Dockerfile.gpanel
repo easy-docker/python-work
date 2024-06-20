@@ -1,6 +1,11 @@
-FROM ghostry/python-work:latest
+FROM ghostry/python-work:3.8
 
 LABEL maintainer="Ghostry <ghostry.green@gmail.com>"
+
+RUN apt-get update \
+  && apt dist-upgrade -y \
+  && apt clean \
+  && rm -rf /var/lib/apt/lists/*
 
 ADD Pipfile /data/Pipfile
 
