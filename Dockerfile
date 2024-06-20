@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:20.04
 
 LABEL maintainer="Ghostry <ghostry.green@gmail.com>"
 
@@ -8,7 +8,6 @@ RUN apt-get update \
   && apt-get install -y git memcached mysql-client libpq-dev python-dev \
   && apt-get install -y python3-pip \
   && apt dist-upgrade -y \
-  && apt-get install -y python3.8 \
   && apt clean \
   && rm -rf /var/lib/apt/lists/* \
   && pip3 install pipenv

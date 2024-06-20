@@ -2,11 +2,6 @@ FROM ghostry/python-work:latest
 
 LABEL maintainer="Ghostry <ghostry.green@gmail.com>"
 
-RUN apt-get update \
-  && apt-get install -y python3.8 \
-  && apt clean \
-  && rm -rf /var/lib/apt/lists/* 
-
 ADD Pipfile /data/Pipfile
 
 RUN cd /data \
