@@ -14,10 +14,12 @@ RUN apt-get update \
   && pip3 install pipenv
 
 ADD start.sh /start.sh
+ADD Pipfile /data/Pipfile
 
 RUN chmod +x /start.sh \
-    && mkdir /data \
-    && echo 'export LC_ALL=C.UTF-8;export LANG=C.UTF-8;umask 000;' >> /root/.bashrc
+    && echo 'export LC_ALL=C.UTF-8;export LANG=C.UTF-8;umask 000;' >> /root/.bashrc \
+    && cd /data \
+    && pipenv install
 
 WORKDIR /data
 

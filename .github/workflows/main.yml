@@ -39,3 +39,7 @@ jobs:
         with:
           push: true
           tags: ${{ env.IMAGE_NAME }}
+      - name: Push gpanel to Docker Hub
+        run: |
+          docker build -f Dockerfile.gpanel -t ${{ env.IMAGE_NAME }}:gpanel .
+          docker push ${{ env.IMAGE_NAME }}:gpanel
